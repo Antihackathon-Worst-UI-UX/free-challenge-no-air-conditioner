@@ -1,18 +1,22 @@
 export class Product {
-    private id: string;
+    private position: { x: number; y: number };
     private name: string;
     private price: number;
     private image: string;
 
-    constructor(id: string, name: string, price: number, image: string) {
-        this.id = id;
+    constructor(name: string, price: number, image: string) {
         this.name = name;
         this.price = price;
         this.image = image;
+        this.position = { x: 0, y: 0 };
     }
 
-    getId() {
-        return this.id;
+    getPosition() {
+        return this.position;
+    }
+
+    setPosition(x: number, y: number) {
+        this.position = { x, y };
     }
 
     getName() {

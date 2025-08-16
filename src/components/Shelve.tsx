@@ -1,9 +1,13 @@
+import { Product } from "../logic/classes/product";
+import ProductComponent from "./Product";
+
 interface ShelveProps {
     width: number;
     height: number;
     top: string;
     left: string;
     backgroundColor: string;
+    productsInShelve: Product[];
 }
 
 function Shelve({
@@ -12,6 +16,7 @@ function Shelve({
         top,
         left,
         backgroundColor,
+        productsInShelve,
     }: ShelveProps) {
 
     return (
@@ -26,6 +31,9 @@ function Shelve({
                     left: left,
                 }}
             >
+                {productsInShelve.map((product, index) => (
+                    <ProductComponent key={index} top={String(0) + "px"} left={String(0)} image={product.getImage()} />
+                ))}
             </div>
         </>
     )
